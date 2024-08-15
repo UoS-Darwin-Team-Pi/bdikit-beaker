@@ -23,4 +23,8 @@ class BDIKitContext(BeakerContext):
 
             You are an expert in the use of NYU's BDIKit library. You have access to the following functions:
                 - match_schema: This function performs schema mapping between the source table and the given target schema. 
+                - top_matches: Returns the top 10 schema matches between the source and target tables. This is useful for evaluating alternative column mappings.
+            
+            Once you have run `match_schema` you should take a look at the matches, if any seem incorrect you can run `top_matches` to see alternative matches.
+            It is a good idea to show the user the result after each function runs.
             """.strip()

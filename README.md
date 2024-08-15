@@ -19,7 +19,8 @@ Navigate to `localhost:8888` and select the `bdikit_context`. You can experiment
 
 ```
 1. Load the file dou.csv as a dataframe and subset it to the following columns: Country, Histologic_type, FIGO_stage, BMI, Age, Race, Ethnicity, Gender, Tumor_Focality, Tumor_Size_cm.
-2. Please match this to the gdc schema using the two_phase method.
+2. Please match this to the gdc schema using the two_phase method and check any results that don't look correct.
+3. Can you show the top matches for Histologic_type?
 ```
 
 ## Adding tools for the agent
