@@ -1,0 +1,22 @@
+---
+
+version: '3'
+services:
+  jupyter:
+    build:
+      dockerfile: Dockerfile
+      context: .
+    ports:
+      - "8888:8888"
+    environment:
+      - DEBUG=1
+      - JUPYTER_SERVER=http://jupyter:8888
+      - JUPYTER_TOKEN=89f73481102c46c0bc13b2998f9a4fce
+      - ENABLE_USER_PROMPT=true
+      - OPENAI_API_KEY
+      - ENABLE_CHECKPOINTS=true  
+      - PYTHONPATH = /jupyter
+    working_dir: /jupyter
+    volumes:
+      - .:/jupyter    
+    command: ["beaker", "dev", "watch", "--ip", "0.0.0.0"]
