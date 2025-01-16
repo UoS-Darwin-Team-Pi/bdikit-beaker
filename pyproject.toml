@@ -23,7 +23,7 @@ classifiers = [
 ]
 dependencies = [
   "beaker_kernel~=1.6.2",
-  "bdi-kit"
+  "bdi-kit @ git+https://github.com/VIDA-NYU/bdi-kit.git@41f6c26e66064dd2aa6b436c023c98e4a96d1b5e"
 ]
 
 [project.urls]
