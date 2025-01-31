@@ -57,8 +57,6 @@ class BDIKitAgent(BeakerAgent):
 
         Returns:
             str: returns the top 10 matches
-
-        You should show the user the result after this function runs.
         """
 
         code = agent.context.get_code(
@@ -94,7 +92,6 @@ class BDIKitAgent(BeakerAgent):
         Returns:
             str: returns the value matches for the given column mapping (source and target column names)
 
-        You should show the user the result after this function runs.
         Uppon user's request, the output of match_values() can be fed to materialize_mapping() which materializes the final target using both schema and value mappings.
         """
 
