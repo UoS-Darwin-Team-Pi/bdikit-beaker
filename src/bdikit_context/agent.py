@@ -200,3 +200,31 @@ class BDIKitAgent(BeakerAgent):
         materialize_result = result.get("return")
 
         return materialize_result
+
+
+    @tool()
+    async def get_gdc_acceptable_values(self, column: str, agent: AgentRef) -> str:
+        """
+        Returns the acceptable values for a given column in the GDC standard.
+
+        Args:
+            column (str): The name of the variable/column in the GDC target schema.
+
+        Returns:
+            str: returns a list of acceptable values (and their descriptions) for the given column in the GDC standard
+        """
+
+        code = agent.context.get_code(
+            "get_gdc_acceptable_values",
+            {
+                "column": column,
+            },
+        )
+        result = await agent.context.evaluate(
+            code,
+            parent_header={},
+        )
+
+        acceptable_values = result.get("return")
+
+        return acceptable_values
