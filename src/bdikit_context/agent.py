@@ -118,7 +118,7 @@ class BDIKitAgent(BeakerAgent):
 
 
     @tool()
-    async def materialize_mapping(self, dataset: str, mapping_spec: str, agent: AgentRef) -> str:
+    async def materialize_mapping(self, dataset: str, mapping_spec: str, output_file: str, agent: AgentRef) -> str:
         """
         Materializes the final (harmonized) table after applying data transformations specified by the schema mapping and value mappings specifications.
 
@@ -178,11 +178,10 @@ class BDIKitAgent(BeakerAgent):
         Args:
             dataset (str): The name of the dataset variable.
             mapping_spec (MappingSpecLike): the column and value mapping specificiation.
+            output_file (str): The name of the output file to save the materialized target. Detaults to "harmonized_table.csv".
 
         Returns:
             str: returns the materialized target using both schema and value mappings
-
-        After this function runs, you should show a sample of 10 rows of the materialized dataframe to the user.
         """
 
         code = agent.context.get_code(
@@ -190,6 +189,7 @@ class BDIKitAgent(BeakerAgent):
             {
                 "dataset": dataset,
                 "mapping_spec": mapping_spec,
+                "output_file": output_file,
             },
         )
         result = await agent.context.evaluate(
