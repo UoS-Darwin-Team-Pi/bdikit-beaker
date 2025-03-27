@@ -11,6 +11,10 @@ COPY --chown=1000:1000 . /jupyter/
 RUN chown -R 1000:1000 /jupyter
 RUN pip install -e /jupyter
 
+# Copy team pi context config over to beaker context dir
+# https://jataware.github.io/beaker-kernel/contexts_adding.html
+COPY pi_context.json /usr/local/share/beaker/contexts/pi_context.json
+
 # Switch to non-root user. It is crucial for security reasons to not run jupyter as root user!
 USER jupyter
 WORKDIR /jupyter
