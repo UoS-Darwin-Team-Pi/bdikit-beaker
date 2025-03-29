@@ -1,0 +1,7 @@
+Product,Category,Supplier,Stock Level,Reorder Point,Unit Cost,Last Restocked
+Cravendale Milk 1L,Dairy,Dairy Fresh Co.,150,50,2.50,2024-03-15
+Morrison's Tiger Bread,Bakery,Local Bakery,75,25,1.25,2024-03-16
+Pink Lady Apples,Fresh Produce,Fresh Farms,200,75,0.35,2024-03-16
+Chicken Breast,Meat,Quality Meats,100,40,6.50,2024-03-15
+Fusilli Pasta,Pantry,Global Foods,300,100,1.00,2024-03-14
+Dolmio Tomato Sauce 500G,Pantry,Global Foods,250,80,1.75,2024-03-14

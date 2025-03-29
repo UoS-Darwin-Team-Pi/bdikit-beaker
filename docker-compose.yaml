@@ -13,8 +13,13 @@ services:
       - JUPYTER_SERVER=http://jupyter:8888
       - JUPYTER_TOKEN=89f73481102c46c0bc13b2998f9a4fce
       - ENABLE_USER_PROMPT=true
+      - PYTHONPATH=/jupyter
       - ENABLE_CHECKPOINTS=true
-      - PYTHONPATH = /jupyter
+      - TOOL_ENABLED_ASK_USER=true
+      - TOOL_ENABLED_RUN_CODE=true
+# Uncomment to use ollama - add `OPENAI_BASE_URL= {your ollama url}` to .env
+#      - LLM_SERVICE_MODEL=qwen2.5-coder:32b
+#      - LLM_SERVICE_TOKEN=ollama
     env_file:
       - '.env'
     working_dir: /jupyter
