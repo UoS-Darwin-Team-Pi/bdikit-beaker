@@ -2,3 +2,4 @@
 *.pyc
 .env
 dou_harmonized.csv
+harmonized.csv
