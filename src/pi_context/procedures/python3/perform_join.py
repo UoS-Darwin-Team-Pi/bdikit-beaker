@@ -13,9 +13,9 @@ def perform_join(
         if ("unmapped" not in mapping["primary"].lower()) and ("unmapped" not in mapping["secondary"].lower()):
             primary_cols.append(mapping["primary"])
             secondary_cols.append(mapping["secondary"])
-        if mapping["matches"]:
+        if mapping.get("matches"):
             for match in mapping["matches"]:
-                secondary_df[mapping["secondary"]].str.replace(match["secondary"], match["primary"])
+                secondary_df[mapping["secondary"]].replace(match["secondary"], match["primary"], inplace=True)
 
     joined_df = pd.merge(
         primary_df,

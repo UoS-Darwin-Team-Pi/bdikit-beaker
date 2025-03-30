@@ -1,6 +1,7 @@
 import pandas as pd
 
 from bdikit.schema_matching.one2one.contrastivelearning import ContrastiveLearningSchemaMatcher
+from bdikit.schema_matching.topk.magneto import MagnetoZSBP
 
 
 def identify_mappings(
@@ -17,10 +18,9 @@ def identify_mappings(
     Returns:
         pd.DataFrame: A DataFrame containing the mapping results with columns "primary" and "secondary".
     """
-    matcher_instance = ContrastiveLearningSchemaMatcher()
+    matcher_instance = MagnetoZSBP()
 
     matches = matcher_instance.map(secondary_df, primary_df)
-
     return pd.DataFrame(matches.items(), columns=["secondary", "primary"])
 
 column_mappings = identify_mappings({{ primary_dataframe }}, {{ secondary_dataframe }})
