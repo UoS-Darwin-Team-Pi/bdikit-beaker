@@ -44,10 +44,10 @@ class PiContext(BeakerContext):
             If unsure, always show a list with all plausible alternatives to the user and ask for the user 
             to choose one among the top alternatives using the function ask_user. After finding the column mappings,
             you should show them to user in a markdown table with the following template:
-                | Primary DF Column  | Secondary DF Column | Corrected?                      |
-                |--------------------|---------------------|---------------------------------|
-                | <primary_column>   | <secondary_column>  | Yes, from "<wrong_column>"      |
-                | ...                | ...                 | ...                             |
+                | <primary_df_name> column&nbsp;&nbsp; | <secondary_df_name> column&nbsp;&nbsp; | Corrected? |
+                |--------------------------|----------------------------|---------------------------------|
+                | <primary_column>         | <secondary_column>         | Yes, from "<wrong_column>"      |
+                | ...                      | ...                        | ...                             |
             Do NOT display columns that are unmapped.
             You should ALWAYS show an updated table after the making any changes to original column mapping.
 
@@ -62,11 +62,11 @@ class PiContext(BeakerContext):
             When calling match_values, you should provide as input the two dataframes, along with the two column names for the current column mapping.
             After identifying value matches for a set of column mappings, you should ALWAYS show the options to the user, and ask them for confirmation before continuing.
             You should use the following template for displaying value matches:
-            ### <secondary_column> → <primary_column>
-                | Secondary Value   | Primary Value   | Corrected?                     |
-                |-------------------|-----------------|--------------------------------|
-                | <secondary_value> | <primary_value> | Yes, from "<wrong_value>"      |
-                | ...               | ...             | ...                            |
+            ### <secondary_column> (secondary_df_name) → <primary_column> (primary_df_name)
+                | <secondary_df_name> value&nbsp;&nbsp; | <primary_df_name> value&nbsp;&nbsp; | Corrected? |
+                |---------------------------|-------------------------|--------------------------------|
+                | <secondary_value>         | <primary_value>         | Yes, from "<wrong_value>"      |
+                | ...                       | ...                     | ...                            |
 
             In step 4, you should provide as input the two dataframes, along with the set of column maps. 
             After running `perform_join`, you should ALWAYS show its output to the user, and inform the user that the

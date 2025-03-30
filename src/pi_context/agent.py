@@ -126,7 +126,7 @@ class HarmopizationAgent(BeakerAgent):
           are Python functions or lambda functions. If empty, an IdentityValueMapper
           is used by default.
         - `matches` (optional): Specifies the identified value matches. It must be a list of dictionaries containing
-          secondary values and primary values, in the format [{"primary": "primaryvalue", "secondary": "secondaryvalue"}].
+          the primary and secondary values that map to one another, in the format {"primary": "primaryvalue", "secondary": "secondaryvalue"}.
 
         Example:
 
