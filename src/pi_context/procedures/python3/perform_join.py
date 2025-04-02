@@ -6,23 +6,27 @@ def perform_join(
         secondary_df: pd.DataFrame,
         column_mappings: Dict,
 ) -> pd.DataFrame:
-    primary_cols = []
-    secondary_cols = []
+    cols = []
+    secondary = secondary_df.copy()
 
     for mapping in column_mappings:
-        if ("unmapped" not in mapping["primary"].lower()) and ("unmapped" not in mapping["secondary"].lower()):
-            primary_cols.append(mapping["primary"])
-            secondary_cols.append(mapping["secondary"])
+        # Map secondary values to corresponding primary ones
         if mapping.get("matches"):
             for match in mapping["matches"]:
-                secondary_df[mapping["secondary"]].replace(match["secondary"], match["primary"], inplace=True)
+                secondary[mapping["secondary"]].replace(match["secondary"], match["primary"], inplace=True)
+
+        # Add mapped columns to join list
+        if ("unmapped" not in mapping["primary"].lower()) and ("unmapped" not in mapping["secondary"].lower()):
+            cols.append(mapping["primary"])
+
+            # Rename secondary DF columns to have same name as primary
+            secondary.rename(columns={mapping["secondary"]: mapping["primary"]}, inplace=True)
 
     joined_df = pd.merge(
         primary_df,
-        secondary_df,
+        secondary,
         how="outer",
-        left_on=primary_cols,
-        right_on=secondary_cols,
+        on=cols,
     )
 
     joined_df.to_csv("harmonized.csv", index=False)
