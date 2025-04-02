@@ -54,9 +54,9 @@ def match_values(
         secondary_values.append(secondary_value)
         similarities.append(similarity)
 
-    matches = pd.DataFrame({secondary_column: secondary_values, primary_column: primary_values}, index=None)
+    matches = pd.DataFrame({secondary_column: secondary_values, primary_column: primary_values})
 
     return matches
 
 value_matches = match_values({{ primary_dataframe }}, {{ secondary_dataframe }}, "{{ primary_column }}", "{{ secondary_column }}")
-value_matches.to_markdown()
+value_matches.to_markdown(index=False)
