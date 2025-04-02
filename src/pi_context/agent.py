@@ -85,7 +85,7 @@ class HarmopizationAgent(BeakerAgent):
             secondary_column (str): The name of the column in secondary_dataframe containing values which should be mapped to values within the primary dataframe.
 
         Returns:
-            str: returns the identified value matches
+            str: returns the identified value matches. The returned markdown will have column headers, showing which values are present in the primary dataframe, and which are in the secondary dataframe.
 
         You should show the user the result after this function runs.
         """

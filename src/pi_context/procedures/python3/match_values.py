@@ -32,11 +32,9 @@ def match_values(
     if ("unmapped" in primary_column.lower()) or ("unmapped" in secondary_column.lower()):
         return
 
-    primary, secondary = primary_column, secondary_column
-
     # Select domains to perform value match within
-    primary_domain = primary_df[primary].unique()
-    secondary_domain = secondary_df[secondary].unique()
+    primary_domain = primary_df[primary_column].unique()
+    secondary_domain = secondary_df[secondary_column].unique()
 
     if not should_match_domains(primary_domain, secondary_domain):
         return
@@ -56,7 +54,7 @@ def match_values(
         secondary_values.append(secondary_value)
         similarities.append(similarity)
 
-    matches = pd.DataFrame({"secondary": secondary_values, "primary": primary_values, "similarity": similarities})
+    matches = pd.DataFrame({secondary_column: secondary_values, primary_column: primary_values}, index=None)
 
     return matches
 
