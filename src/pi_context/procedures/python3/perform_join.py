@@ -29,9 +29,7 @@ def perform_join(
         on=cols,
     )
 
-    joined_df.to_csv("harmonized.csv", index=False)
-
     return joined_df
 
 joined_df = perform_join({{ primary_dataframe }}, {{ secondary_dataframe }}, {{ column_mappings }})
-joined_df.to_markdown()
+globals()["joined_df"] = joined_df

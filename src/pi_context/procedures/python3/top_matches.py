@@ -7,7 +7,6 @@ from bdikit.schema_matching.topk.contrastivelearning import CLTopkSchemaMatcher
 def top_matches(
         source: pd.DataFrame,
         target: pd.DataFrame,
-        columns: Optional[List[str]] = None,
         top_k: int = 10,
 ) -> pd.DataFrame:
     """
@@ -22,10 +21,7 @@ def top_matches(
     Returns:
         pd.DataFrame: A DataFrame containing the top-k matches between the source and target tables.
     """
-    if columns is not None and len(columns) > 0:
-        selected_columns = source[columns]
-    else:
-        selected_columns = source
+    selected_columns = source
 
     topk_matcher = CLTopkSchemaMatcher()
 
@@ -42,5 +38,5 @@ def top_matches(
 
     return pd.concat(dfs, ignore_index=True)
 
-top_matches = top_matches({{ source_df }}, {{ target_df }}, columns=["{{ columns }}"])
+top_matches = top_matches({{ source_df }}, {{ target_df }})
 top_matches.to_markdown()
