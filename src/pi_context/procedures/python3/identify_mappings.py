@@ -24,4 +24,4 @@ def identify_mappings(
     return pd.DataFrame(matches.items(), columns=["secondary", "primary"])
 
 column_mappings = identify_mappings({{ primary_dataframe }}, {{ secondary_dataframe }})
-column_mappings
+column_mappings.to_markdown()

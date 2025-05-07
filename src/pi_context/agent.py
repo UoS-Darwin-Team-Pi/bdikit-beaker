@@ -1,12 +1,68 @@
 from archytas.tool_utils import AgentRef, LoopControllerRef, is_tool, tool, toolset
 from beaker_kernel.lib.agent import BeakerAgent
-from beaker_kernel.lib.config import config
-from beaker_kernel.lib.context import BeakerContext
 
 class HarmopizationAgent(BeakerAgent):
     """
-    An agent that will help a user leverage NYU's BDIKit library for data harmonization.
+    An agent that will help a user leverage tools for data harmonization.
     """
+
+    @tool()
+    async def load_csvs(self, csv_paths: str, agent: AgentRef) -> str:
+        """
+        This function loads CSVs from paths provided by the user, and saves them to the `waiting_csvs` global variable.
+
+        Args:
+            csv_paths (str): A list of all CSV paths provided by the user, e.g.: ["./my_csv.csv", "/home/myuser/my_csv_directory"]
+
+        Returns:
+            str: returns a list of all CSVs that were loaded.
+
+        You should show the user the result after this function runs.
+        """
+
+        code = agent.context.get_code(
+            "load_csvs",
+            {
+                "csv_paths": csv_paths,
+            },
+        )
+        result = await agent.context.evaluate(
+            code,
+            parent_header={},
+        )
+
+        match_result = result.get("return")
+
+        return match_result
+
+    @tool()
+    async def get_csv_from_queue(self, exclude_csvs: str, remove_csv: str, agent: AgentRef) -> str:
+        """
+        This function retrieves a new CSV from the queue, and optionally deletes one.
+
+        Args:
+            exclude_csvs (str): Optional list of CSV names that you DON'T want as the new one, e.g. ["my_csv_1", "my_csv_2"]
+            remove_csv (str): Optional CSV name that you want to delete from the queue, e.g. "my_csv_3"
+
+        Returns:
+            str: returns the name of the new CSV.
+        """
+
+        code = agent.context.get_code(
+            "get_csv_from_queue",
+            {
+                "exclude_csvs": exclude_csvs,
+                "remove_csv": remove_csv,
+            },
+        )
+        result = await agent.context.evaluate(
+            code,
+            parent_header={},
+        )
+
+        match_result = result.get("return")
+
+        return match_result
 
     @tool()
     async def identify_mappings(self, primary_dataframe: str, secondary_dataframe: str, agent: AgentRef) -> str:
@@ -40,7 +96,7 @@ class HarmopizationAgent(BeakerAgent):
         return match_result
 
     @tool()
-    async def top_matches(self, source: str, target: str, columns: str, agent: AgentRef) -> str:
+    async def top_matches(self, source: str, target: str, agent: AgentRef) -> str:
         """
         Returns the top 10 schema matches between the source and target tables. This is useful
         for evaluating alternative column mappings.
@@ -48,10 +104,9 @@ class HarmopizationAgent(BeakerAgent):
         Args:
             source (str): The name of the source dataframe variable.
             target (str): The name of the target dataframe variable.
-            columns (str): The column to match.
 
         Returns:
-            str: returns the top 10 matches
+            str: returns the top 10 matches for each column in the source dataframe.
         """
 
         code = agent.context.get_code(
@@ -59,7 +114,6 @@ class HarmopizationAgent(BeakerAgent):
             {
                 "source_df": source,
                 "target_df": target,
-                "columns": columns,
             },
         )
         result = await agent.context.evaluate(
@@ -187,3 +241,30 @@ class HarmopizationAgent(BeakerAgent):
         joined_table = result.get("return")
 
         return joined_table
+
+    @tool()
+    async def save_join(self, path: str, agent: AgentRef) -> str:
+        """
+        This function saves the result of the join operation to a CSV.
+
+        Args:
+            path (str): The path that the user wants to save the joined CSV to.
+
+        Returns:
+            str: The first 5 rows of the joined CSV as a markdown table.
+        """
+
+        code = agent.context.get_code(
+            "save_join",
+            {
+                "path": path,
+            },
+        )
+        result = await agent.context.evaluate(
+            code,
+            parent_header={},
+        )
+
+        match_result = result.get("return")
+
+        return match_result
