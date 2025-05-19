@@ -1,7 +1,7 @@
 from archytas.tool_utils import AgentRef, LoopControllerRef, is_tool, tool, toolset
 from beaker_kernel.lib.agent import BeakerAgent
 
-class HarmopizationAgent(BeakerAgent):
+class HarPiAgent(BeakerAgent):
     """
     An agent that will help a user leverage tools for data harmonization.
     """

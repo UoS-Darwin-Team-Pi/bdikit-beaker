@@ -1,5 +1,5 @@
 Product Name,Product Category,Supplier,Stock Level,Reorder Point,Unit Cost,Last Restocked
-Milk,Dairy,Dairy Fresh Co.,150,50,2.50,2024-03-15
+Milk,Dairy,Fresh Farms,150,50,2.50,2024-03-15
 Bread,Bakery,Local Bakery,75,25,1.25,2024-03-16
 Apples,Produce,Fresh Farms,200,75,0.35,2024-03-16
 Chicken Breast,Meat,Quality Meats,100,40,6.50,2024-03-15
