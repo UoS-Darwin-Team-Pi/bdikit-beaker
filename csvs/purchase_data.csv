@@ -1,15 +1,15 @@
-Date,Customer ID,Purchased Product,Category,Quantity,Unit Price,Total
-2023-01-01,1001,Cravendale Milk 1L,Dairy,2,3.99,7.98
-2023-01-01,1001,Morrison's Tiger Bread,Bakery,1,2.49,2.49
-2023-01-01,1002,Pink Lady Apples,Fresh Produce,3,0.50,1.50
-2023-01-01,1003,Cravendale Milk 1L,Dairy,1,3.99,3.99
-2023-01-01,1004,Cravendale Milk 1L,Dairy,3,3.99,11.97
-2023-01-01,1005,Cravendale Milk 1L,Dairy,2,3.99,7.98
-2023-01-01,1006,Morrison's Tiger Bread,Bakery,2,2.49,4.98
-2023-01-01,1007,Pink Lady Apples,Fresh Produce,4,0.50,2.00
-2023-01-02,1008,Chicken Breast,Meat,2,8.99,17.98
-2023-01-02,1009,Fusilli Pasta,Pantry,2,1.99,3.98
-2023-01-02,1009,Dolmio Tomato Sauce 500G,Pantry,3,2.49,7.47
-2023-01-02,1010,Chicken Breast,Meat,1,8.99,8.99
-2023-01-02,1011,Fusilli Pasta,Pantry,3,1.99,5.97
-2023-01-02,1012,Dolmio Tomato Sauce 500G,Pantry,2,2.49,4.98
+Date,Customer ID,Purchased Product,Category,Quantity,Unit Price,Total,Brand Name
+2023-01-01,1001,Cravendale Milk 1L,Dairy,2,3.99,7.98,Fresh Farms
+2023-01-01,1001,Morrison's Tiger Bread,Bakery,1,2.49,2.49,Local Bakery
+2023-01-01,1002,Pink Lady Apples,Fresh Produce,3,0.50,1.50,Fresh Farms
+2023-01-01,1003,Cravendale Milk 1L,Dairy,1,3.99,3.99,Fresh Farms
+2023-01-01,1004,Cravendale Milk 1L,Dairy,3,3.99,11.97,Fresh Farms
+2023-01-01,1005,Cravendale Milk 1L,Dairy,2,3.99,7.98,Fresh Farms
+2023-01-01,1006,Morrison's Tiger Bread,Bakery,2,2.49,4.98,Local Bakery
+2023-01-01,1007,Pink Lady Apples,Fresh Produce,4,0.50,2.00,Fresh Farms
+2023-01-02,1008,Chicken Breast,Meat,2,8.99,17.98,Quality Meats
+2023-01-02,1009,Fusilli Pasta,Pantry,2,1.99,3.98,Global Foods
+2023-01-02,1009,Dolmio Tomato Sauce 500G,Pantry,3,2.49,7.47,Global Foods
+2023-01-02,1010,Chicken Breast,Meat,1,8.99,8.99,Quality Meats
+2023-01-02,1011,Fusilli Pasta,Pantry,3,1.99,5.97,Global Foods
+2023-01-02,1012,Dolmio Tomato Sauce 500G,Pantry,2,2.49,4.98,Global Foods
