@@ -24,33 +24,40 @@ Credit to the [Visualisation, Imaging, and Data Analysis Center at New York Univ
 
 ## ⚙️ Installation
 
-First, add your OpenAI API key to the environment:
+- Install [Docker](https://docs.docker.com/get-started/get-docker/)
+
+- Add your OpenAI API key to the environment:
 
 ```
 export OPENAI_API_KEY=your key goes here
 ```
 
-Then use `docker compose` to build and run the Beaker Development Interface:
+- Then use `docker compose` to build and run the Beaker Development Interface:
 
 ```
 docker compose build
 docker compose up -d
 ```
 
-Navigate to `localhost:8888` to open the interface.
+- Navigate to `localhost:8888` to open the interface.
 
 > [!IMPORTANT]
 > To activate the agent, click on the top-left button to open the "Configure Context" window, select the `pi_context`, and then click "Apply". This will start a kernel with access to the HarPiContext agent.
 
+- HarPi uses a [fork](https://github.com/UoS-Darwin-Team-Pi/bdi-kit) of BDI-kit for various bugfixes.
+
 ## 🎬 Demo
 
-Example CSVs can be found in `/csvs`. The video below shows a short demo of the harmonisation process:
+> [!NOTE]
+> Example CSVs can be found in `/csvs`.
+
+The video below shows a short demo of the harmonisation process:
 
 https://github.com/user-attachments/assets/56c52e94-44a1-46a9-868c-3bde1797c8eb
 
 ## 🛠️ Tools
 
-- The agent supports the `top_matches()` and `match_values()` tools from [bdi-kit](https://github.com/VIDA-NYU/bdi-kit). Documentation for their implementation are viewable [here](https://bdi-kit.readthedocs.io/stable/api.html).
+- The agent supports the `top_matches()` and `match_values()` tools from [BDI-Kit](https://github.com/VIDA-NYU/bdi-kit). Documentation for their implementation are viewable [here](https://bdi-kit.readthedocs.io/stable/api.html).
 - Tools implemented are defined in `src/pi_context/agent.py`.
 
 HarPi implements the following tools:
