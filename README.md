@@ -17,7 +17,7 @@ Completed as part of the COM4520 Darwin Project, HarPi builds upon the functiona
 - Follows a definition of harmonisation outlined in the submitted paper. It generates a schema ad hoc by identifying similarities between multiple spreadsheets, and merges them together to match this custom-generated schema.
 - Can generalise to any domain that is contained within the CSVs provided to it.
 - Capable of handling an arbitrary number of spreadsheets.
-- HarPi uses a [fork](https://github.com/UoS-Darwin-Team-Pi/bdi-kit) of BDI-kit for various bugfixes.
+- HarPi uses a [fork](https://github.com/UoS-Darwin-Team-Pi/bdi-kit) of BDI-Kit for various bugfixes.
 
 ## 👥 Credits
 
