@@ -32,6 +32,8 @@ Navigate to `localhost:8888` to open the interface.
 
 ## Demo
 
+https://github.com/user-attachments/assets/56c52e94-44a1-46a9-868c-3bde1797c8eb
+
 ## Adding tools for the agent
 
 Currently the agent supports multiple bdi-kit tools, including `match_schema()`, `match_values()`, and `materialize_mapping()`.
