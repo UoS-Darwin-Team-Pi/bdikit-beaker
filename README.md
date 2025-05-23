@@ -7,7 +7,7 @@
   </a>
 </h1>
 <p align="center">
-  <em>HarPi is an LLM-powered tool for data harmonisation, built on top of <a href="https://github.com/jataware/beaker-kernel">Beaker Kernel</a> and utilsing <a href="https://github.com/VIDA-NYU/bdi-kit">BDI-Kit</a>.</em>
+  <em>HarPi is an LLM-powered tool for data harmonisation, built on top of <a href="https://github.com/jataware/beaker-kernel">Beaker Kernel</a> and utilising <a href="https://github.com/VIDA-NYU/bdi-kit">BDI-Kit</a>.</em>
 </p>
 
 ## 📘 Introduction
