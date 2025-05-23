@@ -27,10 +27,11 @@ Credit to the [Visualisation, Imaging, and Data Analysis Center at New York Univ
 
 - Install [Docker](https://docs.docker.com/get-started/get-docker/).
 
-- Add your OpenAI API key to the environment:
+- Create a `.env` file containing your OpenAI API Key and LLM Service Model:
 
 ```
-export OPENAI_API_KEY=your key goes here
+OPENAI_API_KEY=your key goes here
+LLM_SERVICE_MODEL=gpt-4o-2024-08-06
 ```
 
 - Then use `docker compose` to build and run the Beaker Development Interface:
@@ -73,15 +74,15 @@ HarPi implements the following tools:
 
 ## ➕ Adding Tools for the Agent
 
-Additional tools can easily be added by copying the template for the `match_schema` tool in `/src/bdikit_context/agent.py`.
+Additional tools can easily be added by copying the template for the `match_values` tool in `/src/pi_context/agent.py`.
 
-One thing to note is that `@tools` are managed by [Archytas](https://github.com/jataware/archytas). Archytas allows somewhat restricted argument types and does not allow direct passing of `pandas.DataFrame`. Instead, dataframes should be referenced by their variable names as a `str`. The actual code procedure that is executed (see `procedures/python3/match_schema.py`) treats the arguments from the `@tool` as variable names; when they should actually _be strings_ they should be wrapped in quotes as in the `match_schema.py` example. Procedures invoked by tools can have their arguments passed in using Jinja templating. For example:
+One thing to note is that `@tools` are managed by [Archytas](https://github.com/jataware/archytas). Archytas allows somewhat restricted argument types and does not allow direct passing of `pandas.DataFrame`. Instead, dataframes should be referenced by their variable names as a `str`. The actual code procedure that is executed (see `procedures/python3/match_values.py`) treats the arguments from the `@tool` as variable names; when they should actually _be strings_ they should be wrapped in quotes as in the `match_values.py` example. Procedures invoked by tools can have their arguments passed in using Jinja templating. For example:
 
 ```
-column_mappings = bdi.match_schema({{ dataset }}, target="{{ target }}", method="{{ method }}")
+value_matches = match_values({{ primary_dataframe }}, {{ secondary_dataframe }}, "{{ primary_column }}", "{{ secondary_column }}")
 ```
 
-Here `{{ dataset }}` is the string name of a `pandas.DataFrame` and is interpreted as a variable, where as `"{{ target }}"` is treated as a string such as `"gdc"`.
+Here `{{ primary_dataframe }}` and `{{ secondary_dataframe }}` are names of `pandas.DataFrame` variables and are interpreted as such, whereas `"{{ primary_column }}"` and `"{{ secondary_column }}"` are treated as strings.
 
 ## ✏️ Prompt Modification
 
