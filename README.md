@@ -7,7 +7,7 @@
   </a>
 </h1>
 <p align="center">
-  <em>HarPi is an LLM-powered tool for data harmonisation, built on top of <a href="https://github.com/jataware/beaker-kernel">Beaker</a> and utilsing <a href="https://github.com/VIDA-NYU/bdi-kit">BDI-Kit</a>.</em>
+  <em>HarPi is an LLM-powered tool for data harmonisation, built on top of <a href="https://github.com/jataware/beaker-kernel">Beaker Kernel</a> and utilsing <a href="https://github.com/VIDA-NYU/bdi-kit">BDI-Kit</a>.</em>
 </p>
 
 ## 📘 Introduction
@@ -25,7 +25,7 @@ Credit to the [Visualisation, Imaging, and Data Analysis Center at New York Univ
 
 ## ⚙️ Installation
 
-- Install [Docker](https://docs.docker.com/get-started/get-docker/)
+- Install [Docker](https://docs.docker.com/get-started/get-docker/).
 
 - Add your OpenAI API key to the environment:
 
