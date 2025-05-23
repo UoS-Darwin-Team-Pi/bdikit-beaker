@@ -27,7 +27,7 @@ Credit to the [Visualisation, Imaging, and Data Analysis Center at New York Univ
 
 - Install [Docker](https://docs.docker.com/get-started/get-docker/).
 
-- Create a `.env` file containing your OpenAI API Key and LLM Service Model:
+- Create a `.env` file containing your OpenAI API Key and [LLM Service Model](https://platform.openai.com/docs/pricing):
 
 ```
 OPENAI_API_KEY=your key goes here
