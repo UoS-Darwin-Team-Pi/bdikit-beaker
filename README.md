@@ -17,6 +17,7 @@ Completed as part of the COM4520 Darwin Project, HarPi builds upon the functiona
 - Follows a definition of harmonisation outlined in the submitted paper. It generates a schema ad hoc by identifying similarities between multiple spreadsheets, and merges them together to match this custom-generated schema.
 - Can generalise to any domain that is contained within the CSVs provided to it.
 - Capable of handling an arbitrary number of spreadsheets.
+- HarPi uses a [fork](https://github.com/UoS-Darwin-Team-Pi/bdi-kit) of BDI-kit for various bugfixes.
 
 ## 👥 Credits
 
@@ -43,8 +44,6 @@ docker compose up -d
 
 > [!IMPORTANT]
 > To activate the agent, click on the top-left button to open the "Configure Context" window, select the `pi_context`, and then click "Apply". This will start a kernel with access to the HarPiContext agent.
-
-- HarPi uses a [fork](https://github.com/UoS-Darwin-Team-Pi/bdi-kit) of BDI-kit for various bugfixes.
 
 ## 🎬 Demo
 
